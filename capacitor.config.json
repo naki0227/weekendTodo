@@ -1,0 +1,6 @@
+{
+  "appId": "com.weekendtodo.app",
+  "appName": "Weekend Todo",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

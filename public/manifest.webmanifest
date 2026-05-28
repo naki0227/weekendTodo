@@ -1,0 +1,24 @@
+{
+  "name": "Weekend Todo",
+  "short_name": "WeekendTodo",
+  "description": "週末するTodoだけを手早く管理できるアプリ",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5efe4",
+  "theme_color": "#f5efe4",
+  "lang": "ja",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='40' fill='%23d45d2f'/%3E%3Cpath d='M53 101l25 24 61-61' fill='none' stroke='%23fffaf5' stroke-linecap='round' stroke-linejoin='round' stroke-width='18'/%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='108' fill='%23d45d2f'/%3E%3Cpath d='M143 270l67 66 159-159' fill='none' stroke='%23fffaf5' stroke-linecap='round' stroke-linejoin='round' stroke-width='42'/%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
