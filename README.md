@@ -1,6 +1,6 @@
 # Weekend Todo
 
-週末にやるTodoだけを素早く登録して、スマホでもPCでも見やすく管理するための `React + TypeScript + Supabase Auth + Cloudflare Pages` 向けアプリです。
+週末にやるTodoだけを素早く登録して、スマホでもPCでも見やすく管理するための `React + TypeScript + Supabase Auth + Vercel` 向けアプリです。
 
 ## できること
 
@@ -50,7 +50,7 @@ http://localhost:5173
 
 Redirect URLs:
 http://localhost:5173
-https://YOUR-PROJECT.pages.dev
+https://YOUR-PROJECT.vercel.app
 https://YOUR-CUSTOM-DOMAIN
 ```
 
@@ -65,12 +65,12 @@ https://YOUR-CUSTOM-DOMAIN
 
 ## 公開方法
 
-### Cloudflare Pages
+### Vercel
 
 1. GitHubにこのリポジトリをpush
-2. Cloudflare Pagesで `naki0227/weekendTodo` を接続
+2. Vercelで `naki0227/weekendTodo` をImport
 3. Build command を `npm run build`
-4. Build output directory を `dist`
+4. Output Directory を `dist`
 5. Environment Variables に以下を設定
 
 ```text
@@ -78,12 +78,12 @@ VITE_SUPABASE_URL
 VITE_SUPABASE_ANON_KEY
 ```
 
-6. デプロイ後、発行された `https://...pages.dev` を Supabase の Redirect URLs に追加
+6. デプロイ後、発行された `https://...vercel.app` を Supabase の Redirect URLs に追加
 
 補足:
 
-- [public/_redirects](./public/_redirects) を入れてあるのでSPAルーティングでもCloudflare Pagesで開けます
-- Cloudflare Access ではなく Supabase Auth をログイン基盤にする前提です
+- ログイン基盤は Vercel ではなく Supabase Auth です
+- カスタムドメインを使う場合も、そのURLを Supabase の Redirect URLs に追加してください
 
 ## ネイティブアプリ化する場合
 

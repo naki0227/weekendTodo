@@ -10,7 +10,13 @@ import {
   nextWeekendDate,
   addDays,
 } from "./lib/date";
-import { getInitialSession, onAuthStateChange, signInWithMagicLink, signOut } from "./lib/auth";
+import {
+  getInitialSession,
+  onAuthStateChange,
+  signInWithGoogle,
+  signInWithMagicLink,
+  signOut,
+} from "./lib/auth";
 import { supabase } from "./lib/supabase";
 import { createTodo, deleteTodo, groupTodos, loadTodos, pruneExpiredTodos, toggleTodo } from "./lib/todos";
 import type { AuthMode, BackendMode, TodoFilter, TodoItem } from "./types";
@@ -133,6 +139,13 @@ export default function App() {
     setAuthNotice("ログインリンクをメールで送りました。スマホかPCで開いてログインしてください。");
   }
 
+  async function handleGoogleSignIn() {
+    const { error } = await signInWithGoogle();
+    if (error) {
+      window.alert("Googleログインを開始できませんでした。Supabase と Google Auth 設定を確認してください。");
+    }
+  }
+
   async function handleSignOut() {
     await signOut();
   }
@@ -192,8 +205,18 @@ export default function App() {
           <p className="eyebrow">Weekend Planner</p>
           <h1>週末Todoにログイン</h1>
           <p className="hero-copy">
-            Supabase Authのマジックリンクでログインします。ログイン後は自分の週末Todoだけが表示されます。
+            Googleログインかメールのマジックリンクでログインできます。ログイン後は自分の週末Todoだけが表示されます。
           </p>
+
+          <div className="auth-actions">
+            <button className="oauth-button" type="button" onClick={() => void handleGoogleSignIn()}>
+              Googleでログイン
+            </button>
+          </div>
+
+          <div className="auth-divider" aria-hidden="true">
+            <span>またはメールでログイン</span>
+          </div>
 
           <form className="todo-form" onSubmit={handleSignIn}>
             <label>

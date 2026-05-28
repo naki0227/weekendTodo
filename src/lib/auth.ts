@@ -23,6 +23,19 @@ export async function signInWithMagicLink(email: string) {
   });
 }
 
+export async function signInWithGoogle() {
+  if (!supabase) {
+    return { error: new Error("Supabase is not configured.") };
+  }
+
+  return supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: window.location.origin,
+    },
+  });
+}
+
 export async function signOut() {
   if (!supabase) {
     return;
