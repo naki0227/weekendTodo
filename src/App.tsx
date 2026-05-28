@@ -81,7 +81,7 @@ export default function App() {
   async function refreshTodos() {
     setLoading(true);
     await pruneExpiredTodos();
-    const next = await loadTodos();
+    const next = await loadTodos(session?.user.id);
     setItems(next.items);
     setBackend(next.backend);
     setLoading(false);

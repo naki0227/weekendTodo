@@ -8,6 +8,17 @@ export type TodoItem = {
   created_at: string;
 };
 
+export type PendingTodoMutation =
+  | {
+      type: "upsert";
+      item: TodoItem;
+    }
+  | {
+      type: "delete";
+      id: string;
+      user_id: string;
+    };
+
 export type TodoFilter = "all" | "open" | "done";
 
 export type BackendMode = "supabase" | "local";
